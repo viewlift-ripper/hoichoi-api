@@ -79,7 +79,7 @@ async function token() {
             return res.data.authorizationToken
         })
         .catch(function(e) {
-            if (err.response.status == 409 && e.response.data.code == "DEVICE_LIMIT_EXCEEDED") {
+            if (e.response.status == 401 && e.response.data.code == "DEVICE_LIMIT_EXCEEDED") {
                 return "exce"
             } else {
                 return "token_err"
